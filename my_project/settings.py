@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'hardware.apps.HardwareConfig', #dopisane zeby wyszukiwał template z app
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

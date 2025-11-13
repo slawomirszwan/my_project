@@ -5,6 +5,14 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("first response")
 
+def index2(request):
+    return render(request,'hardware/index.html',{})
+#trzeba dopisać ściezkę szukania template dopisac settings / installled Apps
+
+
+def details(request, hardware_id):
+    return render(request,'hardware/details.html',{'hardware_id':hardware_id})
+
 def info(request):
     number = 55
     list = [1,2,3,4]
