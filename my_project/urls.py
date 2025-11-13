@@ -15,8 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+#from django.views.generic import RedirectView
+
+#------
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("index response")
+#-------
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index),
+
+    #path('', RedirectView.as_view(pattern_name='home', permanent=False)),
+    #path('home/', include('apps.hardware.urls')),
+    #path('hardware/', include('apps.hardware.urls')),
+    #path('software/', include('apps.software.urls')),
+
+
+    #dodanie wskazania na urls z aplikacji hardware
+    path('hardware/', include('hardware.urls'))
 ]
